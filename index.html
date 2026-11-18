@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NefroGuía · Prevención y Seguimiento de Pielonefritis</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/extras.css">
+</head>
+<body data-footer>
+<div class="bar">Esta herramienta es de seguimiento y preventiva; no emite diagnósticos automatizados ni prescribe tratamientos de urgencia.</div>
+<section class="v on" id="inicio">
+<header class="top">
+  <a class="logo" href="index.html"><i data-i="logo"></i>NefroGuía</a>
+  <nav class="nav" aria-label="Navegación principal">
+    <a class="on" href="index.html">Inicio</a>
+    <a href="registro.html">Seguimiento</a>
+    <a href="clinico.html">Profesionales</a>
+    <a href="informativo.html">Informativo</a>
+    <a href="ayuda.html">Ayuda / FAQ</a>
+  </nav>
+  <a class="btn" href="acceso.html"><i data-i="user"></i>Iniciar sesión</a>
+</header>
+
+<main>
+<!-- HERO -->
+<div class="hero">
+  <div style="display:grid;gap:18px">
+    <h1>Cuida tus riñones con señales claras y seguimiento clínico oportuno</h1>
+    <p class="mute" style="font-size:17px;line-height:1.5">NefroGuía te ayuda a prevenir complicaciones de la pielonefritis, correlacionar tus hábitos de hidratación, registrar síntomas de alarma y mantener una comunicación estructurada con tu equipo médico tratante.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a class="btn o" href="#alarma" style="color:var(--hl)"><i data-i="alert"></i>Revisar señales de alarma</a>
+      <a class="btn" href="acceso.html"><i data-i="user"></i>Ingresar a NefroGuía</a>
+    </div>
+    <div class="trust">
+      <span><i data-i="shield"></i>Datos locales (Ley 20.584)</span>
+      <span><i data-i="steth"></i>Validación médica</span>
+      <span><i data-i="check"></i>Semáforo de Carga Renal</span>
+    </div>
+  </div>
+  <div class="art">
+    <img src="img/hero-renal.png" alt="Ilustración del aparato renal y urinario" loading="eager">
+  </div>
+</div>
+
+<!-- SECCIÓN ALARMA Y AUTOEVALUACIÓN RÁPIDA (Págs. 15 y 16 del PDF) -->
+<div class="sec" id="alarma" style="background:var(--redbg)">
+  <span class="eb">Primero, tu seguridad</span>
+  <h2 style="margin:4px 0 6px;font-weight:600;font-size:clamp(26px,4vw,36px)">¿Cuándo buscar atención médica inmediata?</h2>
+  <p class="mute" style="margin-bottom:20px;max-width:800px">No esperes a completar registros si notas alguna de estas señales críticas. Si tienes dudas, recurre inmediatamente al teléfono de emergencias o acude a un centro asistencial.</p>
+  
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px">
+    <div class="urg c" style="border-left:4px solid var(--red)">
+      <h3 style="color:var(--red);display:flex;align-items:center;gap:8px"><i data-i="siren"></i>Urgencias inmediatas (Llama al 131 o 911)</h3>
+      <p style="font-size:13px;margin:4px 0 12px;color:var(--tx)">Acude de urgencia y no te traslades conduciendo tú mismo si presentas:</p>
+      <ul class="il">
+        <li><span class="b"><i data-i="alert"></i></span>Confusión, somnolencia marcada o desorientación nueva</li>
+        <li><span class="b"><i data-i="alert"></i></span>Dificultad respiratoria o respiración acelerada</li>
+        <li><span class="b"><i data-i="alert"></i></span>Desmayo, pérdida de conocimiento o debilidad extrema</li>
+        <li><span class="b"><i data-i="alert"></i></span>Vómitos continuos que impiden beber líquidos o tomar el antibiótico</li>
+        <li><span class="b"><i data-i="alert"></i></span>Embarazo con fiebre alta o dolor lumbar agudo</li>
+      </ul>
+      <div class="note" style="margin-top:14px;background:var(--card);border-radius:8px;padding:10px 12px;font-size:12px;color:var(--ink)">
+        <b>Teléfono de emergencia:</b><br>
+        • <b>Chile:</b> <b>131</b> (SAMU) · <b>600 360 7777</b> (Salud Responde MINSAL)<br>
+      </div>
+    </div>
+
+    <div class="card" style="border-radius:16px;padding:24px">
+      <h3 class="ih"><i data-i="calclock"></i>Valoración el mismo día</h3>
+      <p style="font-size:13px;margin:4px 0 12px;color:var(--mute)">Requiere consulta médica presencial hoy mismo para examen y urocultivo:</p>
+      <ul class="il cl">
+        <li><span class="b"><i data-i="clock"></i></span>Fiebre de 38 °C o más, con o sin escalofríos con temblor</li>
+        <li><span class="b"><i data-i="clock"></i></span>Dolor agudo en el costado, flanco o espalda baja (zona renal)</li>
+        <li><span class="b"><i data-i="clock"></i></span>Sangre visible en la orina (hematuria)</li>
+        <li><span class="b"><i data-i="clock"></i></span>Antecedente de cálculos urinarios o litiasis con síntomas urinarios</li>
+        <li><span class="b"><i data-i="clock"></i></span>Sin mejoría tras 48 horas de haber iniciado antibiótico prescrito</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Contenedor dinámico de autochequeo inyectado por js/index.js -->
+  <div id="autocheck-container" style="margin-top:20px"></div>
+</div>
+
+<!-- CÓMO FUNCIONA -->
+<div class="sec" style="padding:64px 5vw">
+  <div class="mid">
+    <h2>Cómo funciona la plataforma NefroGuía</h2>
+  </div>
+  <div class="c3" style="margin-top:32px">
+    <div class="card">
+      <span class="n">01</span>
+      <h3>Registro y Factores de Riesgo</h3>
+      <p class="mute">Ficha estructurada en 5 pasos que evalúa comorbilidades (diabetes, litiasis, ERC, embarazo), recurrencias previas y límites de ingesta hídrica.</p>
+    </div>
+    <div class="card">
+      <span class="n">02</span>
+      <h3>Chequeo Diario y Semáforo</h3>
+      <p class="mute">Monitoreo de temperatura, dolor lumbar EVA, micciones, tolerancia gastrointestinal y glucemia capilar en diabéticos en menos de dos minutos.</p>
+    </div>
+    <div class="card">
+      <span class="n">03</span>
+      <h3>Priorización Clínica (Triage)</h3>
+      <p class="mute">Panel para profesionales que ordena a los pacientes según riesgo objetivo, estado de urocultivos y adherencia al tratamiento prescrito.</p>
+    </div>
+  </div>
+</div>
+
+<!-- LLAMADO A LA ACCIÓN -->
+<div class="sec" style="background:var(--mint);padding:48px 5vw;text-align:center">
+  <h2 style="font-size:28px">¿Eres profesional de salud o paciente en seguimiento?</h2>
+  <p class="mute" style="max-width:640px;margin:8px auto 24px">Accede a las herramientas de visualización de datos locales, reportes clínicos descargables y guías preventivas.</p>
+  <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
+    <a class="btn" href="acceso.html"><i data-i="user"></i>Ingresar a NefroGuía</a>
+    <a class="btn o" href="registro.html"><i data-i="form"></i>Crear cuenta de paciente</a>
+  </div>
+</div>
+</main>
+
+<footer class="ft" style="padding:32px 5vw;background:var(--bg);border-top:1px solid var(--bd);font-size:13px;color:var(--mute)">
+  <div style="max-width:1200px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;align-items:center">
+    <div>
+      <b>NefroGuía</b><br>
+      <span style="font-size:12px">Diseñado con propósitos preventivos y de seguimiento clínico. No reemplaza el diagnóstico presencial. Datos locales bajo Ley N.º 20.584 y Ley N.º 19.628.</span>
+    </div>
+    <div style="display:flex;gap:16px">
+      <a href="informativo.html">Guía Informativa</a>
+      <a href="ayuda.html">Preguntas Frecuentes</a>
+      <a href="acceso.html">Credenciales Demo</a>
+    </div>
+  </div>
+</footer>
+</section>
+
+<script src="js/app.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
