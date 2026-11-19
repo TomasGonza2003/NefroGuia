@@ -174,7 +174,6 @@
     } else {
       restrictionNotice = '<div class="nudge" style="margin-top:10px">' +
         '<b>Registro descriptivo de tendencias:</b> La plataforma registra tu consumo de líquidos en vasos de referencia (1 vaso = 250 mL) y su correspondencia con tus síntomas reportados. ' +
-        '<i>Nota clínica: No hay evidencia que valide un desfase causal directo de 24–48 horas; la hidratación es una medida de apoyo y no sustituye el tratamiento antibiótico ni la evaluación médica de la pielonefritis.</i>' +
         '</div>';
     }
 
