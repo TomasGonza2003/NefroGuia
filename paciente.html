@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NefroGuía · Portal Paciente</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/extras.css">
+</head>
+<body data-guard="paciente">
+<section class="v on" id="paciente">
+<div class="app">
+  <aside class="side">
+    <div class="brand"><i data-i="logo"></i>NefroGuía</div>
+    <div class="rc"><span>PACIENTE</span><b>Ana Martínez (P01)</b></div>
+    <a class="on" href="paciente.html"><i data-i="grid"></i>Hoy</a>
+    <a href="paciente.html"><i data-i="activity"></i>Evolución y Chequeo</a>
+    <a href="paciente.html"><i data-i="clip"></i>Historial Clínico</a>
+    <a href="paciente.html"><i data-i="cal"></i>Controles</a>
+    <a href="paciente.html"><i data-i="book"></i>Educación y Hábitos</a>
+    <a href="paciente.html"><i data-i="msg"></i>Resumen y Chat</a>
+    <a href="ayuda.html"><i data-i="help"></i>Ayuda</a>
+    <div class="hc">
+      <b>¿Necesitas apoyo?</b>
+      Revisa nuestras guías clínicas o contacta a tu equipo de salud tratante.
+    </div>
+    <a class="out" href="index.html"><i data-i="out"></i>Cerrar sesión</a>
+  </aside>
+
+  <div class="main">
+    <div class="bar">Esta herramienta es de seguimiento y preventiva; no diagnostica, prescribe de urgencia ni sustituye la atención médica profesional.</div>
+    <div data-panel="0">
+      <div class="head">
+        <div>
+          <h2>Hola, Ana</h2>
+          <p class="mute" style="font-size:13px">Seguimiento y prevención de pielonefritis</p>
+        </div>
+        <div class="hr">
+          <a class="btn o" href="ayuda.html"><i data-i="headset"></i>Centro de Ayuda</a>
+          <span class="av">AM</span>
+        </div>
+      </div>
+
+      <div class="urg al" hidden id="emergency-banner">
+        <span class="ai"><i data-i="alert"></i></span>
+        <div>
+          <h3 id="emergency-title">Alerta Clínica: Se requiere valoración médica presencial hoy</h3>
+          <p id="emergency-desc">Tus respuestas indican que necesitas valoración profesional hoy. Esto no es un diagnóstico. Si presentas confusión nueva, desmayo, dificultad para respirar, vómitos persistentes con incapacidad para beber líquidos o empeoras rápido, acude de inmediato a urgencias o llama a emergencias (131).</p>
+        </div>
+        <a class="btn r" href="ayuda.html"><i data-i="phone"></i>Ver canales de urgencia</a>
+      </div>
+
+      <div class="grid">
+        <div class="card kpi">
+          <span class="mute">Chequeo de hoy</span>
+          <b id="kpi-chequeo-count">0 chequeos</b>
+          <small class="mute" id="kpi-chequeo-time">Pendiente hoy</small>
+        </div>
+        <div class="card kpi">
+          <span class="mute">Adherencia antibiótica</span>
+          <b id="kpi-adherencia-val">100%</b>
+          <small class="mute">Tratamiento prescrito</small>
+        </div>
+        <div class="card kpi">
+          <span class="mute">Próximo control</span>
+          <b id="kpi-control-date">—</b>
+          <small class="mute" id="kpi-control-desc">Sin citas agendadas</small>
+        </div>
+        <div class="card kpi">
+          <span class="mute">Hidratación registrada</span>
+          <b id="kpi-hidra-val">0 vasos (0 mL)</b>
+          <small class="mute" id="kpi-hidra-meta">Meta individual</small>
+        </div>
+      </div>
+
+      <div id="hy" style="display:grid;gap:16px"></div>
+
+      <div class="two">
+        <div class="card">
+          <div class="head">
+            <div>
+              <h3>Resumen de síntomas de hoy</h3>
+              <small class="mute">Datos autorreportados en tu último chequeo diario.</small>
+            </div>
+            <span class="pill" id="st-pill">Información insuficiente</span>
+          </div>
+          <div style="margin-top:14px" id="today-summary-list"></div>
+          <button class="btn" id="btn-quick-check" style="margin-top:12px">
+            <i data-i="arrow"></i>Registrar o actualizar chequeo de hoy
+          </button>
+        </div>
+
+        <div style="display:grid;gap:16px;align-content:start">
+          <div class="card">
+            <div class="head">
+              <h3>Dolor en flanco/lumbar (Últimos 7 días)</h3>
+              <span class="pill">Escala EVA (0–10)</span>
+            </div>
+            <div class="bars" id="pain-chart-quick"></div>
+            <small class="mute">Registro descriptivo de dolor reportado.</small>
+          </div>
+          <div class="card">
+            <div class="head">
+              <h3>Indicaciones de tu equipo tratante</h3>
+              <span class="pill"><i data-i="steth"></i>Plan individual</span>
+            </div>
+            <p class="mute" id="doc-nutri-notes" style="font-size:13px;line-height:1.5;margin-top:6px">
+              Cargando indicaciones nutricionales y metas preventivas...
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+        <div class="card head">
+          <span class="rl">
+            <em class="ti"><i data-i="dl"></i></em>
+            <span>
+              <b>Resumen clínico para consulta</b><br>
+              <small class="mute">Descarga tu evolución de síntomas y adherencia en PDF o CSV</small>
+            </span>
+          </span>
+          <button class="btn o" id="btn-go-summary">Ver opciones</button>
+        </div>
+        <div class="card head">
+          <span class="rl">
+            <em class="ti"><i data-i="msg"></i></em>
+            <span>
+              <b>Chat con tu equipo tratante</b><br>
+              <small class="mute">Canal seguro de orientación clínica</small>
+            </span>
+          </span>
+          <button class="btn o" id="btn-go-chat">Abrir mensajes</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="panels"></div>
+  </div>
+</div>
+</section>
+<script src="js/app.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/paciente.js"></script>
+</body>
+</html>

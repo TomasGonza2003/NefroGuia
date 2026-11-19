@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NefroGuía · Registro Clínico de Paciente</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/extras.css">
+</head>
+<body>
+<div class="bar">Esta herramienta es de seguimiento y preventiva; no diagnostica ni prescribe de urgencia.</div>
+<section class="v on" id="registro">
+<header class="top"><a class="logo" href="index.html"><i data-i="logo"></i>NefroGuía</a><span class="stw"><i data-i="save"></i><span id="st">Guardado en este dispositivo</span></span><a class="hl" href="index.html">Guardar y salir</a></header>
+<div class="steps"><aside><ol id="nav" style="padding:0;margin:0"><li style="margin-bottom:10px"><span class="eb">Registro de Paciente</span><h3 style="margin-top:6px;font-size:22px;font-weight:500">Ficha Clínica de 5 Pasos</h3><small class="mute">Estructurada según protocolo COIL Duoc UC & Tec de Monterrey.</small></li><li data-go="0">1 Datos y contacto</li><li data-go="1">2 Salud y antecedentes</li><li data-go="2">3 Episodios urinarios</li><li data-go="3">4 Cultivos y hábitos</li><li data-go="4">5 Consentimiento</li></ol><div class="pcard"><i data-i="shield"></i><b>Privacidad y Datos Locales</b>Tus datos clínicos se almacenan en este dispositivo bajo la Ley N.º 20.584.</div></aside>
+<div style="display:grid;gap:16px"><div class="pgr"><div><span class="eb" id="pn">Paso 1 de 5</span><h1 id="pt" style="font-size:32px;margin-top:4px">Datos y contacto</h1><p class="mute" id="pd" style="margin-top:6px">Crea tu cuenta con tus datos básicos de identificación.</p></div><span class="pill" id="pg" style="flex:none">20% completado</span></div>
+
+<!-- PASO 1: DATOS Y CONTACTO -->
+<div class="stp" hidden><div class="card"><div class="fg">
+<div><label for="r_nom">Nombre completo *</label><input id="r_nom" data-k="nom" autocomplete="name" placeholder="Ej. Camila Valenzuela"></div>
+<div><label for="r_mail">Correo electrónico *</label><input id="r_mail" type="email" data-k="mail" autocomplete="email" maxlength="254" placeholder="nombre@correo.com"></div>
+<div><label for="r_tel">Teléfono</label><input id="r_tel" type="tel" data-k="tel" placeholder="+56 9 ... o +52 ..."></div>
+<div><label for="r_nac">Fecha de nacimiento *</label><input id="r_nac" type="date" data-k="nac"><small class="hint" id="edad-calc">Edad: —</small></div>
+<div><label for="r_pais">Nacionalidad</label><select id="r_pais" data-k="pais"><option>Chile</option><option>México</option><option>Colombia</option><option>Otra</option></select></div>
+<div><label for="r_sex">Sexo biológico *</label><select id="r_sex" data-k="sex"><option value="">Selecciona</option><option value="F">Femenino</option><option value="M">Masculino</option><option value="O">Otro / Prefiero no decir</option></select></div>
+<div id="emb-wrap"><label for="r_emb">Embarazo o posibilidad de embarazo</label><select id="r_emb" data-k="emb"><option value="No">No</option><option value="Sí">Sí</option><option value="No aplica">No aplica</option></select></div>
+<div id="emb-sem-wrap" hidden><label for="r_sem_emb">Semanas de gestación</label><input id="r_sem_emb" type="number" min="1" max="42" data-k="sem_emb" placeholder="Ej. 18"></div>
+<div><label for="r_pass">Contraseña *</label><input id="r_pass" type="password" data-k="pass" autocomplete="new-password"></div>
+<div><label for="r_pass2">Repite la contraseña *</label><input id="r_pass2" type="password" data-k="pass2" autocomplete="new-password"></div>
+</div></div></div>
+
+<!-- PASO 2: SALUD Y ANTECEDENTES (Ampliación según Pág. 17 del PDF) -->
+<div class="stp" hidden><div class="card"><h3>Enfermedades y antecedentes médicos</h3><p class="mute" style="margin:4px 0 12px;font-size:13px">Marca las condiciones diagnosticadas previamente para evaluar factores de riesgo.</p>
+<div class="ck" style="margin-top:12px">
+<label><input type="checkbox" data-k="dm" id="ck_dm"> Diabetes Mellitus</label>
+<label><input type="checkbox" data-k="erc" id="ck_erc"> Enfermedad Renal Crónica (ERC)</label>
+<label><input type="checkbox" data-k="lit"> Cálculos u obstrucción urinaria (Litiasis)</label>
+<label><input type="checkbox" data-k="hta"> Hipertensión arterial</label>
+<label><input type="checkbox" data-k="ob"> Obesidad</label>
+<label><input type="checkbox" data-k="inm"> Inmunosupresión o trasplante</label>
+<label><input type="checkbox" data-k="son"> Sonda urinaria / catéter vesical</label>
+<label><input type="checkbox" data-k="ins"> Cirugía o instrumentación urológica reciente</label>
+<label id="pros-label" hidden><input type="checkbox" data-k="pros"> Problemas prostáticos previos / retención urinaria</label>
+<label><input type="checkbox" data-k="restr_liq" id="ck_restr"> Tengo restricción hídrica prescrita por el médico</label>
+</div>
+
+<div class="fg" style="margin-top:14px">
+<div id="dmw" hidden><label for="r_dmt">Tratamiento y control de la diabetes</label><select id="r_dmt" data-k="dmt"><option value="">Selecciona</option><option>Al día (con fármacos / insulina)</option><option>Irregular / Dificultad para cumplir</option><option>Sin tratamiento farmacológico</option></select></div>
+<div id="erc_wrap" hidden><label for="r_erc_est">Estadio ERC / Creatinina / TFG</label><input id="r_erc_est" data-k="erc_est" placeholder="Ej. Estadio 3b, Creatinina 1.8, eGFR 40 mL/min"></div>
+<div id="restr_wrap" hidden><label for="r_restr_ml">Límite máximo de líquidos prescrito (mL/día)</label><input id="r_restr_ml" type="number" data-k="restr_ml" placeholder="Ej. 1500"></div>
+<div><label for="r_liq">Líquidos que bebes al día habitualmente (vasos de 250 mL)</label><input id="r_liq" type="number" min="0" max="30" data-k="liq" value="6"></div>
+<div><label for="r_ale">Alergias a medicamentos conocidas</label><input id="r_ale" data-k="ale" placeholder="Ej. Ninguna / Penicilina / Quinolonas"></div>
+<div><label for="r_med">Medicamentos actuales de uso habitual</label><input id="r_med" data-k="med" placeholder="Nombre y dosis de fármacos"></div>
+</div></div></div>
+
+<!-- PASO 3: EPISODIOS URINARIOS Y RECURRENCIA -->
+<div class="stp" hidden><div class="card"><h3>Agregar episodios previos de infección urinaria</h3><p class="mute" style="margin:4px 0 10px;font-size:13px">Distingue episodios con confirmación médica o urocultivo de síntomas no confirmados.</p>
+<div class="fg">
+<div><label for="e_d">Fecha del episodio</label><input id="e_d" type="date"></div>
+<div><label for="e_c">Tipo de confirmación</label><select id="e_c"><option value="1">Episodio confirmado (médico / urocultivo)</option><option value="0">Síntomas sospechosos no confirmados</option></select></div>
+<div><label for="e_n">Nota / Germen aislado si lo sabes</label><input id="e_n" placeholder="Ej. Fiebre y dolor lumbar, E. coli"></div>
+</div>
+<button class="btn" id="e_a" type="button" style="margin-top:10px"><i data-i="cal"></i>Agregar episodio</button></div>
+<div class="card" style="margin-top:16px"><h3 style="margin-bottom:12px">Episodios registrados en el sistema</h3><div id="e_l"></div></div>
+<div class="card" style="margin-top:16px"><h3 style="margin-bottom:12px">Frecuencia temporal y Criterio de Recurrencia</h3><div id="e_t"></div><div id="e_r" class="nudge" style="margin-top:10px"></div></div></div>
+
+<!-- PASO 4: CULTIVOS, TRATAMIENTO Y HÁBITOS (Págs. 17 y 18 del PDF) -->
+<div class="stp" hidden><div class="card"><div class="fg">
+<div><label for="r_cu">¿Se realizó urocultivo recientemente?</label><select id="r_cu" data-k="cu"><option>No</option><option>Sí</option></select></div>
+<div id="cdw" hidden><label for="r_cud">Fecha de toma de la muestra</label><input id="r_cud" type="date" data-k="cud"></div>
+<div id="cug_wrap" hidden><label for="r_cug">Microorganismo aislado / Antibiograma</label><input id="r_cug" data-k="cug" placeholder="Ej. E. coli sensible a Nitrofurantoína"></div>
+<div><label for="r_tr">Tratamiento antibiótico actual prescrito</label><input id="r_tr" data-k="tr" placeholder="Ej. Ciprofloxacino 500 mg c/12h vía oral"></div>
+<div><label for="r_dom">¿Has omitido alguna dosis?</label><select id="r_dom" data-k="dom"><option>No, he tomado todas a la hora</option><option>Omití 1 dosis</option><option>Omití 2 o más dosis</option><option>No he podido tomarlo por vómitos</option></select></div>
+<div><label for="r_efectos">Efectos adversos del medicamento</label><input id="r_efectos" data-k="efectos" placeholder="Ej. Ninguno / Náuseas / Dolor estomacal"></div>
+<div><label for="r_ant_prev">¿Has tomado antibióticos en los últimos 3 meses?</label><select id="r_ant_prev" data-k="ant_prev"><option>No</option><option>Sí, en 1 ocasión</option><option>Sí, en múltiples ocasiones</option></select></div>
+<div><label for="r_ur">Atención médica reciente</label><select id="r_ur" data-k="ur"><option>Consulta ambulatoria habitual</option><option>Atención en Urgencias sin ingreso</option><option>Hospitalización previa</option></select></div>
+<div><label for="r_hp">¿Orinas tras relaciones sexuales?</label><select id="r_hp" data-k="hp"><option>Siempre / Frecuentemente</option><option>A veces</option><option>Nunca</option><option>No aplica</option></select></div>
+<div><label for="r_ha">¿Consumes productos de arándano rojo?</label><select id="r_ha" data-k="ha"><option>No</option><option>Ocasionalmente</option><option>Regularmente (extracto estandarizado PAC)</option></select></div>
+</div></div></div>
+
+<!-- PASO 5: RESUMEN Y CONSENTIMIENTO -->
+<div class="stp" hidden><div class="card"><h3>Resumen de tu registro clínico</h3><div id="sm" style="margin-top:10px"></div></div>
+<div class="card" style="margin-top:16px"><div class="ck" style="grid-template-columns:1fr">
+<label><input type="checkbox" data-k="c1"> <b>Entiendo que NefroGuía es una plataforma preventiva de acompañamiento y no diagnostica, prescribe fármacos de urgencia ni sustituye la atención médica presencial.</b></label>
+<label><input type="checkbox" data-k="c2"> <b>Acepto que mis datos clínicos se almacenen en este dispositivo bajo los principios de la Ley N.º 20.584 y Ley N.º 19.628 de Chile para mi seguimiento.</b></label>
+<label><input type="checkbox" data-k="c3"> Autorizo compartir este resumen y evolución con el equipo clínico tratante.</label>
+</div></div></div>
+
+<div style="display:flex;justify-content:space-between;margin-top:16px"><button class="btn o" id="bk" type="button">Atrás</button><button class="btn" id="nx" type="button">Continuar</button></div></div></div>
+</section>
+<script src="js/app.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/registro.js"></script>
+</body>
+</html>

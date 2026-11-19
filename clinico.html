@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NefroGuía · Panel Profesional de Triage</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/extras.css">
+</head>
+<body data-guard="clinico">
+<section class="v on" id="clinico">
+<div class="app">
+  <aside class="side">
+    <div class="brand"><i data-i="logo"></i>NefroGuía</div>
+    <div class="rc"><span>PROFESIONAL MÉDICO</span><b>Dra. Laura Gómez</b></div>
+    <a class="on" href="clinico.html"><i data-i="grid"></i>Resumen y Triage</a>
+    <a href="clinico.html"><i data-i="users"></i>Pacientes y Cohorte</a>
+    <a href="clinico.html"><i data-i="clip"></i>Revisión y Techos</a>
+    <a href="clinico.html"><i data-i="msg"></i>Comunicación Clínica</a>
+    <a href="ayuda.html"><i data-i="help"></i>Ayuda</a>
+    <div class="hc">
+      <b>Triage Clínico COIL</b>
+    </div>
+    <a class="out" href="index.html"><i data-i="out"></i>Cerrar sesión</a>
+  </aside>
+
+  <div class="main">
+    <div class="bar">Esta plataforma es de priorización y apoyo clínico preventivo; no emite diagnósticos automáticos ni reemplaza el criterio médico asistencial.</div>
+    <div data-panel="0">
+      <div class="head">
+        <div>
+          <h2>Panel Clínico de Priorización (Triage)</h2>
+          <p class="mute" style="font-size:13px" id="clinico-date">Seguimiento priorizado de pielonefritis y cohorte sintética</p>
+        </div>
+        <div class="hr">
+          <button class="btn o" id="msgs" type="button"><i data-i="msg"></i>Mensajería</button>
+          <button class="btn" id="addp" type="button"><i data-i="userplus"></i>Añadir paciente</button>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card kpi">
+          <span class="mute">Alertas prioritarias</span>
+          <b id="kpi-alertas">0</b>
+          <small class="mute">Revisión presencial hoy o urgencia</small>
+        </div>
+        <div class="card kpi">
+          <span class="mute">Urocultivos pendientes</span>
+          <b id="kpi-cultivos">0</b>
+          <small class="mute">Muestra en proceso o pendiente</small>
+        </div>
+        <div class="card kpi">
+          <span class="mute">Adherencia media</span>
+          <b id="kpi-adherencia">0%</b>
+          <small class="mute">Tratamiento prescrito en cohorte</small>
+        </div>
+        <div class="card kpi">
+          <span class="mute">Controles esta semana</span>
+          <b id="kpi-controles">0</b>
+          <small class="mute">Próximos 7 días</small>
+        </div>
+      </div>
+
+      <div class="banner">
+        <i data-i="info"></i>
+        <span>
+          <b>Protocolo de Priorización Clínica (Tec de Monterrey / Duoc UC):</b> Las reglas directas de alarma (fiebre ≥38 °C, dolor en flanco ≥7/10, vómitos persistentes, sospecha de obstrucción infectada o confusión) prevalecen sobre cualquier puntaje. El algoritmo numérico se presenta como herramienta de priorización. Criterio de recurrencia: <b>≥2 infecciones en 6 meses o ≥3 en 12 meses</b>.
+        </span>
+      </div>
+
+      <div class="card">
+        <div class="head">
+          <div>
+            <h3 style="font-size:20px">Cohorte de Pacientes Priorizados (Triage)</h3>
+            <small class="mute">Haz clic en cualquier paciente de la tabla para cargar su evolución y ficha clínica.</small>
+          </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <button class="pill on" data-f="all">Todas (20)</button>
+            <button class="pill r" data-f="r">Revisar ahora</button>
+            <button class="pill a" data-f="hoy">Hoy</button>
+            <button class="pill" data-f="est">Estable</button>
+            <button class="pill a" data-f="adh">Baja adherencia (&lt;80%)</button>
+          </div>
+        </div>
+        <div class="tw" style="margin-top:12px">
+          <table id="triage-table">
+            <thead>
+              <tr>
+                <th>ID / Paciente</th>
+                <th>Recurrencias</th>
+                <th>Adherencia</th>
+                <th>Estado de Urocultivo</th>
+                <th>Próximo control</th>
+                <th>Prioridad Triage</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="two">
+        <div class="card" id="selected-patient-card">
+          <div class="head">
+            <h3 id="sel-p-name">Selecciona un paciente</h3>
+            <span class="pill" id="sel-p-priority">Estado</span>
+          </div>
+          <small class="mute">Últimos 7 días · dolor autorreportado (Escala EVA 0–10)</small>
+          <div class="bars" id="sel-p-chart"></div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px" id="sel-p-pills">
+            <span class="pill a" id="sel-pill-pain">Dolor: —</span>
+            <span class="pill" id="sel-pill-adh">Adherencia: —</span>
+            <span class="pill" id="sel-pill-rec">Recurrencias: —</span>
+            <span class="pill" id="sel-pill-g">Glucosa: —</span>
+          </div>
+        </div>
+
+        <div class="card" style="display:grid;gap:10px;align-content:start">
+          <h3>Acciones Clínicas Inmediatas</h3>
+          <div class="row" id="sel-p-cu-row" style="background:var(--redbg);color:var(--red)">
+            Urocultivo: Pendiente de confirmación
+          </div>
+          <div class="row" id="sel-p-notes-row">
+            Tratamiento: En seguimiento
+          </div>
+          <div id="sel-p-image-alert" class="nudge a" style="display:none;margin:0">
+            <b>Estudio de imagen sugerido:</b> Evaluar ecografía o TAC según protocolo clínico.
+          </div>
+          <button class="btn o" id="btn-open-review">
+            <i data-i="clip"></i>Abrir ficha y prescribir techos nutricionales
+          </button>
+          <button class="btn" id="btn-open-chat">
+            <i data-i="msg"></i>Enviar mensaje seguro al paciente
+          </button>
+          <small class="mute">
+            La plataforma apoya la continuidad del seguimiento y la toma de decisiones clínicas; no emite diagnósticos automatizados.
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div id="panels"></div>
+  </div>
+</div>
+</section>
+<script src="js/app.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/clinico.js"></script>
+</body>
+</html>
