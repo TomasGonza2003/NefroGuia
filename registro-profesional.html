@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NefroGuía · Solicitud de cuenta profesional</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/extras.css">
+</head>
+<body>
+<div class="bar">Las cuentas profesionales deben ser aprobadas por un administrador antes de poder ingresar.</div>
+<section class="v on" id="registro-pro">
+<header class="top"><a class="logo" href="index.html"><i data-i="logo"></i>NefroGuía</a><a href="acceso.html?role=clinico" style="margin-left:auto;font-weight:600;color:var(--hl);display:inline-flex;align-items:center;gap:8px"><i data-i="back"></i>Volver al acceso</a></header>
+<div class="wrap" style="max-width:820px;margin:32px auto">
+  <span class="eb" style="font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--acc)">PROFESIONALES</span>
+  <h1 style="font-size:32px;margin:4px 0 6px">Solicitar cuenta profesional</h1>
+  <p class="mute" style="margin-bottom:18px">Completa tus datos. Un administrador revisará la solicitud y, una vez aprobada, podrás ingresar con tu correo y contraseña.</p>
+
+  <div class="card" id="form-box">
+    <div class="fg">
+      <div><label for="p_nom">Nombre completo *</label><input id="p_nom" autocomplete="name" placeholder="Ej. Dra. Camila Valenzuela"></div>
+      <div><label for="p_mail">Correo electrónico *</label><input id="p_mail" type="email" autocomplete="email" maxlength="254" placeholder="nombre@correo.com"></div>
+      <div><label for="p_tel">Teléfono</label><input id="p_tel" type="tel" placeholder="+56 9 ..."></div>
+      <div><label for="p_esp">Especialidad *</label><input id="p_esp" placeholder="Ej. Nefrología, Urología, Medicina general"></div>
+      <div><label for="p_reg">N.º de registro profesional *</label><input id="p_reg" placeholder="Ej. MED-12345-CL"></div>
+      <div><label for="p_inst">Institución / lugar de trabajo</label><input id="p_inst" placeholder="Ej. Hospital San José"></div>
+      <div><label for="p_pass">Contraseña *</label><input id="p_pass" type="password" autocomplete="new-password"></div>
+      <div><label for="p_pass2">Repite la contraseña *</label><input id="p_pass2" type="password" autocomplete="new-password"></div>
+    </div>
+    <button class="btn" id="p_send" type="button"><i data-i="arrow"></i>Enviar solicitud</button>
+  </div>
+
+  <div class="card" id="done-box" hidden>
+    <h3>Solicitud enviada</h3>
+    <p class="mute" style="margin:6px 0 14px">Tu solicitud quedó en estado <b>pendiente</b>. Cuando un administrador la apruebe podrás ingresar desde la pantalla de acceso, eligiendo el perfil Profesional.</p>
+    <a class="btn" href="acceso.html?role=clinico">Ir al acceso</a>
+  </div>
+</div>
+</section>
+<script src="js/app.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/registro-profesional.js"></script>
+</body>
+</html>

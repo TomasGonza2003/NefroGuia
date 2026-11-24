@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NefroGuía · Acceso</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/extras.css">
+</head>
+<body>
+<div class="bar">Esta herramienta es informativa; no diagnostica, prescribe ni sustituye la atención profesional.</div>
+<section class="v on" id="acceso">
+<header class="top"><a class="logo" href="index.html"><i data-i="logo"></i>NefroGuía</a><a href="index.html" style="margin-left:auto;font-weight:600;color:var(--hl);display:inline-flex;align-items:center;gap:8px"><i data-i="back"></i>Volver al inicio</a></header>
+<div class="login">
+  <div class="l">
+    <span class="eb">Tu información, contigo</span>
+    <h1>Un espacio seguro para acompañar tu salud renal</h1>
+    <p style="opacity:.85">Accede como paciente para registrar tu evolución y adherencia, o como profesional médico para el seguimiento, triage y prescripción preventiva.</p>
+    <img class="ph" src="img/login.jpg" alt="Paciente y profesional de salud revisando el seguimiento en una tableta">
+    <div class="lk"><i data-i="lock"></i>Conexión cifrada · Control de privacidad · Cierre de sesión seguro</div>
+  </div>
+  <div class="r">
+    <div class="card" style="width:min(480px,100%)">
+      <h2 style="font-size:28px;font-weight:500">Bienvenido a NefroGuía</h2>
+      <p class="mute" style="margin-bottom:6px">Selecciona tu perfil para ingresar a la plataforma.</p>
+      
+      <div class="role">
+        <button class="on" data-r="paciente" type="button">
+          <em class="ti"><i data-i="user"></i></em>
+          <span><b>Paciente</b><small class="mute">Evolución, hidratación y chequeo</small></span>
+          <i class="tick" data-i="ccheck"></i>
+        </button>
+        <button data-r="clinico" type="button">
+          <em class="ti"><i data-i="steth"></i></em>
+          <span><b>Profesional</b><small class="mute">Triage, alertas y prescripción</small></span>
+          <i class="tick" data-i="ccheck"></i>
+        </button>
+      </div>
+
+      <label for="em">Correo electrónico *</label>
+      <input id="em" type="email" autocomplete="email" placeholder="tu@correo.com">
+
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <label for="pw">Contraseña *</label>
+        <button id="tg-pw" type="button" style="background:none;border:0;color:var(--hl);font-size:12px;font-weight:600;padding:0">Mostrar</button>
+      </div>
+      <input id="pw" type="password" autocomplete="current-password" placeholder="Tu contraseña">
+
+      <div class="lr">
+        <label><input type="checkbox" id="keep" checked>Mantener sesión iniciada</label>
+        <a href="ayuda.html">¿Olvidaste tu contraseña?</a>
+      </div>
+
+      <button class="btn" id="go" type="button" style="width:100%;padding:12px 22px">
+        <i data-i="arrow"></i><span>Acceder como paciente</span>
+      </button>
+
+      <p class="mute" style="font-size:13px;margin-top:16px;text-align:center">
+        ¿Primera vez aquí? <a href="registro.html" style="color:var(--hl);font-weight:600">Crear una cuenta de paciente</a><br>
+        ¿Eres profesional de la salud? <a href="registro-profesional.html" style="color:var(--hl);font-weight:600">Solicitar cuenta profesional</a>
+      </p>
+    </div>
+    <div class="sp"><i data-i="help"></i>¿Problemas para acceder? <a href="ayuda.html">Contacta al centro de ayuda</a></div>
+  </div>
+</div>
+</section>
+<script src="js/app.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/acceso.js"></script>
+</body>
+</html>

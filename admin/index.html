@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NefroGuía · Administración</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../css/extras.css">
+<link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+
+<!-- ACCESO ADMIN -->
+<section class="v on" id="ad-login">
+  <div class="adl">
+    <div class="card" style="width:min(420px,100%)">
+      <div class="brand" style="color:var(--ink)"><i data-i="logo"></i>NefroGuía</div>
+      <h2 style="font-size:26px;font-weight:500;margin-bottom:4px">Administración</h2>
+      <p class="mute" style="margin-bottom:14px">Acceso para administradores de la plataforma.</p>
+      <label for="ad-em">Correo</label>
+      <input id="ad-em" type="email" value="admin@nefroguia.cl" autocomplete="username">
+      <label for="ad-pw">Contraseña</label>
+      <input id="ad-pw" type="password" value="Admin2026!" autocomplete="current-password">
+      <div class="err" id="ad-err" hidden style="margin:-4px 0 10px"></div>
+      <button class="btn" id="ad-go" type="button" style="width:100%"><i data-i="arrow"></i>Entrar al panel</button>
+      <p class="mute" style="font-size:12px;margin-top:12px;text-align:center">Proyecto académico · credenciales de demostración</p>
+      <p style="font-size:13px;margin-top:8px;text-align:center"><a href="../index.html" style="color:var(--hl);font-weight:600">Volver al sitio</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- PANEL ADMIN -->
+<section class="v" id="ad-app">
+<div class="app">
+  <aside class="side">
+    <div class="brand"><i data-i="logo"></i>NefroGuía</div>
+    <div class="rc"><span>ADMINISTRADOR</span><b id="ad-name">Administrador</b></div>
+    <a data-go="resumen" class="on"><i data-i="grid"></i>Resumen</a>
+    <a data-go="solicitudes"><i data-i="userplus"></i>Solicitudes<span class="nbadge" id="nb-req" hidden>0</span></a>
+    <a data-go="profesionales"><i data-i="steth"></i>Profesionales</a>
+    <a data-go="pacientes"><i data-i="users"></i>Pacientes</a>
+    <a data-go="monitoreo"><i data-i="stack"></i>Monitoreo</a>
+    <a href="../"><i data-i="back"></i>Ir al sitio</a>
+    <a id="ad-out" class="exit"><i data-i="out"></i>Cerrar sesión</a>
+  </aside>
+
+  <div class="main">
+    <div class="bar">Panel de administración · los datos se guardan en el navegador (localStorage), no hay servidor.</div>
+
+    <!-- RESUMEN -->
+    <div data-panel="resumen">
+      <div class="head"><div><h2>Resumen de la plataforma</h2><p class="mute" style="font-size:13px" id="ad-date"></p></div></div>
+      <div class="grid" id="r-kpis"></div>
+      <div class="two" style="margin-top:16px">
+        <div class="card"><h3>Solicitudes pendientes</h3><div class="tw" id="r-pend"></div></div>
+        <div class="card"><h3>Actividad reciente</h3><div id="r-act"></div></div>
+      </div>
+    </div>
+
+    <!-- SOLICITUDES -->
+    <div data-panel="solicitudes" hidden>
+      <div class="head"><div><h2>Solicitudes de profesionales</h2><p class="mute" style="font-size:13px">Aprueba o rechaza a quienes pidieron una cuenta profesional.</p></div></div>
+      <div class="card"><h3>Pendientes</h3><div class="tw" id="s-pend"></div></div>
+      <div class="card" style="margin-top:16px"><h3>Historial</h3><div class="tw" id="s-hist"></div></div>
+    </div>
+
+    <!-- PROFESIONALES -->
+    <div data-panel="profesionales" hidden>
+      <div class="head"><div><h2>Profesionales con cuenta</h2><p class="mute" style="font-size:13px">Puedes desactivar o reactivar el acceso de un profesional.</p></div></div>
+      <div class="card"><div class="tw" id="p-list"></div></div>
+    </div>
+
+    <!-- PACIENTES -->
+    <div data-panel="pacientes" hidden>
+      <div class="head"><div><h2>Pacientes</h2><p class="mute" style="font-size:13px" id="pa-sub"></p></div>
+        <div class="hr"><button class="btn o" id="pa-csv" type="button"><i data-i="dl"></i>Exportar CSV</button></div></div>
+      <div class="card"><input id="pa-q" placeholder="Buscar por nombre, ID o correo" style="max-width:360px"><div class="tw" id="pa-list"></div></div>
+    </div>
+
+    <!-- MONITOREO -->
+    <div data-panel="monitoreo" hidden>
+      <div class="head"><div><h2>Monitoreo de la plataforma</h2><p class="mute" style="font-size:13px">Estado, uso y actividad.</p></div>
+        <div class="hr"><button class="btn o" id="m-refresh" type="button">Actualizar</button></div></div>
+      <div class="grid" id="m-kpis"></div>
+      <div class="two" style="margin-top:16px">
+        <div class="card"><h3>Ingresos de los últimos 7 días</h3><div class="bars" id="m-bars"></div></div>
+        <div class="card"><h3>Estado del sistema</h3><div id="m-status"></div></div>
+      </div>
+      <div class="card" style="margin-top:16px"><h3>Registro de actividad</h3><div class="tw" id="m-act"></div></div>
+      <div class="card" style="margin-top:16px"><h3>Herramientas</h3>
+        <p class="mute" style="margin:4px 0 12px;font-size:13px">Respaldo y mantenimiento de los datos guardados en este navegador.</p>
+        <div class="hr" style="flex-wrap:wrap">
+          <button class="btn o" id="t-export" type="button"><i data-i="dl"></i>Descargar respaldo (JSON)</button>
+          <button class="btn o" id="t-clear" type="button">Vaciar registro de actividad</button>
+          <button class="btn r" id="t-reset" type="button">Restablecer datos de demo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<script src="../js/app.js"></script>
+<script src="../js/ui.js"></script>
+<script src="../js/admin.js"></script>
+</body>
+</html>
